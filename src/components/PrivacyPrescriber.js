@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { ArrowRight, Info, CheckCircle, ExternalLink } from 'lucide-react';
+import Disclaimer from './Disclaimer';
 
 // Main Privacy Prescriber component
 const PrivacyPrescriber = () => {
@@ -262,7 +263,7 @@ const RegulationsStep = ({ responses, setResponses }) => {
 
   return (
     <div>
-      <p className="mb-4">Are you subject to any regulatory requirements?</p>
+      <p className="mb-4">Are you subject to any regulatory requirements? Select all that apply.</p>
 
       <div className="space-y-2">
         <label className="flex items-center p-2">
@@ -273,7 +274,7 @@ const RegulationsStep = ({ responses, setResponses }) => {
             onChange={handleChange}
             className="mr-3"
           />
-          <span>Internal analytics</span>
+          <span>General Data Protection Regulation (GDPR))</span>
         </label>
 
         <label className="flex items-center p-2">
@@ -284,7 +285,7 @@ const RegulationsStep = ({ responses, setResponses }) => {
             onChange={handleChange}
             className="mr-3"
           />
-          <span>Sharing with external collaborators</span>
+          <span>California Consumer Privacy Act (CCPA)</span>
         </label>
 
         <label className="flex items-center p-2">
@@ -295,7 +296,7 @@ const RegulationsStep = ({ responses, setResponses }) => {
             onChange={handleChange}
             className="mr-3"
           />
-          <span>Public release (open datasets)</span>
+          <span>Freedom of Information Act (FOIA)</span>
         </label>
 
         <label className="flex items-center p-2">
@@ -306,7 +307,51 @@ const RegulationsStep = ({ responses, setResponses }) => {
             onChange={handleChange}
             className="mr-3"
           />
-          <span>Machine learning or AI model training</span>
+          <span>Children's Online Privacy Protection Act (COPPA)</span>
+        </label>
+
+        <label className="flex items-center p-2">
+          <input
+            type="checkbox"
+            value="ml2"
+            checked={responses.regulations.includes('ml2')}
+            onChange={handleChange}
+            className="mr-3"
+          />
+          <span>Family Educational Rights and Privacy Act (FERPA)</span>
+        </label>
+
+        <label className="flex items-center p-2">
+          <input
+            type="checkbox"
+            value="ml3"
+            checked={responses.regulations.includes('ml3')}
+            onChange={handleChange}
+            className="mr-3"
+          />
+          <span>Health Insurance Portability and Accountability Act (HIPAA)</span>
+        </label>
+
+        <label className="flex items-center p-2">
+          <input
+            type="checkbox"
+            value="ml4"
+            checked={responses.regulations.includes('ml4')}
+            onChange={handleChange}
+            className="mr-3"
+          />
+          <span>Gramm-Leach-Bliley Act Privacy Rule (GBLA)</span>
+        </label>
+
+        <label className="flex items-center p-2">
+          <input
+            type="checkbox"
+            value="ml5"
+            checked={responses.regulations.includes('ml5')}
+            onChange={handleChange}
+            className="mr-3"
+          />
+          <span>None or not sure</span>
         </label>
       </div>
     </div>
@@ -630,6 +675,7 @@ const Summary = ({ responses }) => {
           placeholder="Enter your questions or contact details here..."
         ></textarea>
       </div>
+      <Disclaimer />
     </div>
   );
 };
